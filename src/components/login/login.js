@@ -12,7 +12,7 @@ const Login = (props) => {
     const handleLogin = () => {
         setError(null);
         setLoading(null);
-        const url = 'http://localhost:8000/yarn_lists/create';
+        const url = 'http://localhost:8000/login';
         axios.post(url,{username: username.value, password: password.value} ).then(result => {
             setLoading(true);
             setUserSession(result.data.token, result.data.user);
