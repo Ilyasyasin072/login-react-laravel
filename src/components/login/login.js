@@ -17,11 +17,12 @@ const Login = (props) => {
             setLoading(true);
             setUserSession(result.data.token, result.data.user);
             props.history.push('/dashboard');
-        }).catch(error => {
-            setLoading(false);
-            if(error.result.status === 401) setError(error.response.data.massage);
-            else setError("Something went Wrong Pleaste Try Again");
         })
+        // .catch(error => {
+        //     setLoading(false);
+        //     if(error.result.status === 401) setError(error.response.data.massage);
+        //     else setError("Something went Wrong Pleaste Try Again");
+        // })
     }
 
     return (
