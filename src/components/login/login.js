@@ -7,16 +7,18 @@ const Login = (props) => {
     const password = useFormInput('');
     const [error, setError] = useState(null);
     const [loading , setLoading] = useState(false);
-    const history = useHistory();
+    // const history = useHistory();
 
     const handleLogin = () => {
         setError(null);
         setLoading(null);
-        const url = 'http://localhost:8000/login';
+        const url = 'http://192.168.0.94:8001/api/v1/login';
         axios.post(url,{username: username.value, password: password.value} ).then(result => {
             setLoading(true);
-            setUserSession(result.data.token, result.data.user);
+            console.log(result.data.username);
+            setUserSession(result.data.token, result.data.username);
             props.history.push('/dashboard');
+            console.log(result);
         })
         // .catch(error => {
         //     setLoading(false);

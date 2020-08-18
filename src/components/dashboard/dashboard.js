@@ -1,13 +1,17 @@
 import React from 'react';
-
-const Dashboard = (props) => {
+import {Link} from 'react-router-dom';
+import {removeUserSession} from '../../common/http-common';
+const Dashboard = (props) => {    
     const handleLogout = () => {
+        removeUserSession();
         props.history.push('/login');
     }
+
+    const data = sessionStorage.getItem('user');
     return (
         <div>
-            Welcome User! <br></br>
-            <input type="button" onClick={handleLogout} value="logout"/>
+            {data ? (<input type="button" onClick={handleLogout} value="logout"/>) : "Welcome Saja"} <br></br>
+            {data ? <Link to="/customers">Customers</Link> : ''}
         </div>
     )
 }
