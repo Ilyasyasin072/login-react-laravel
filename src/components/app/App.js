@@ -6,9 +6,11 @@ import {BrowserRouter} from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-      <Router/>
-      </BrowserRouter>
+      <React.StrictMode>
+        <BrowserRouter>
+          <Router/>
+        </BrowserRouter>
+      </React.StrictMode>
     </div>
   );
 }

@@ -1,17 +1,19 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import {Table, Card, CardGroup} from 'react-bootstrap';
+import DatatableCustomer from './datatable';
+ 
 const Customers = () => {
-    const [customer, setCustomer] = useState([]);
-    useEffect(() => {
-        const url = 'http://192.168.0.94:8001/api/v1/customerjson';
-        axios.get(url).then(result => {
-         setCustomer(result.data);
-        })
-    }, []);
     return (
         <div>
-        <Card>
+            <DatatableCustomer/>
+        {/* <Card>
+            <CreateCustomer/>
+        <DataTable
+            title="Customer"
+            columns={columns}
+            data={customer}
+            selectableRows/>
+        </Card> */}
+        {/* <Card>
             <CardGroup>
             <Table striped bordered hover >
                 <thead>
@@ -25,21 +27,24 @@ const Customers = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {customer.map((row =>{
-            return (<tr key={row.id}>
+                    {customer.map((row =>{ return (<tr key={row.id}>
                         <td>{row.id}</td>
                         <td>{row.customer_name}</td>
                         <td>{row.duty_free}</td>
                         <td>{row.payment_deposit}</td>
                         <td>{row.credit_duration}</td>
                         <td>{row.attention}</td>
+                        <td>
+                            <Button className="btn btn-sm btn-primary">update</Button>
+                            <Button className="btn btn-sm btn-danger">Delete</Button>
+                        </td>
                     </tr>)
         }))}
         
         </tbody>
             </Table>
             </CardGroup>
-        </Card>
+        </Card> */}
         </div>
     )
 }
